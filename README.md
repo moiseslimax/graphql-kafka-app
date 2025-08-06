@@ -1,31 +1,28 @@
 # graphql-kafka-app
 
-A minimal boilerplate using **GraphQL**, **Kafka**, and **NestJS** to build scalable and event-driven backend services.
+This project is a **simulated multi-microservice environment** built with **NestJS**, **GraphQL Federation**, and **Kafka**. Its purpose is to explore and test:
 
-## ✨ Features
+- Inter-service communication via Kafka
+- GraphQL federation across independent services
+- Realistic service boundaries (User, Wallet, Gateway)
+- Event-driven architecture patterns
 
-- GraphQL API with basic queries and mutations
-- Kafka producer and consumer integration
-- NestJS modular architecture
-- TypeScript and clean code structure
+It is not a boilerplate or starter template, but a self-contained sandbox for experimenting with distributed service communication using modern backend tools.
 
-## 📦 Tech Stack
+## Services Included
 
-- [NestJS](https://nestjs.com/)
-- [GraphQL](https://graphql.org/)
-- [Apache Kafka](https://kafka.apache.org/)
-- [TypeScript](https://www.typescriptlang.org/)
+- **user-service**: Manages user creation and publishes Kafka events
+- **wallet-service**: Listens to Kafka events and reacts (e.g., auto-creates a wallet)
+- **graphql-gateway**: Exposes a unified GraphQL schema using Apollo Federation
 
-## 🚀 Getting Started
+## Tech Stack
 
-### Prerequisites
+- NestJS
+- GraphQL (Code-First + Federation)
+- Apache Kafka (KRaft mode via Docker)
+- Docker Compose
 
-- Node.js >= 18
-- Docker + Docker Compose
-
-### Installation
+## Getting Started
 
 ```bash
-git clone https://github.com/your-username/graphql-kafka-app.git
-cd graphql-kafka-app
-npm install
+docker-compose up --build
