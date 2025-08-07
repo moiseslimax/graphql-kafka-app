@@ -1,10 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { Wallet } from './wallet.entity';
 import { randomUUID } from 'crypto';
-import { CreateWalletInput } from './dto/createWallet.input';
+import { CreateWalletInput } from './dto/create-wallet.input';
+import { KafkaService } from 'src/kafka/kafka.service';
 
 @Injectable()
 export class WalletService {
+    constructor(
+        private readonly kafkaService: KafkaService
+    ) {}
     private wallets: Wallet[] = [];
 
     create(createWalletinput: CreateWalletInput): Wallet {
