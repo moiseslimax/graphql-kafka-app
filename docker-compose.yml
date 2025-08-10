@@ -67,7 +67,7 @@ services:
       - user-service
       - wallet-service
     ports:
-      - "3000:3000"
+      - "4000:4000"
     volumes:
       - ./graphql-gateway:/app
       - gateway_node_modules:/app/node_modules

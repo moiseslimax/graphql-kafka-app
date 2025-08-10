@@ -48,4 +48,8 @@ export class WalletService implements OnModuleInit {
     findAll(): Wallet[] {
         return this.wallets;
     }
+
+    findByUserUuid(userUuid: string): Wallet | undefined {
+        return this.wallets.find(wallet => wallet.userUuid === userUuid)
+    }
 }
